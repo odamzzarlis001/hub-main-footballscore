@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球比分 · 主站介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f3ed;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            line-height: 1.7;
+            color: #2e2a24;
+            padding: 2.5rem 1.2rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fefcf8;
+            border-radius: 36px 36px 28px 28px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 2.8rem 2.2rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                padding: 1.8rem 1.2rem;
+                border-radius: 28px;
+            }
+        }
+
+        .opening {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #4b3f32;
+            border-left: 5px solid #b8a48c;
+            padding-left: 1.4rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .opening strong {
+            font-weight: 600;
+            color: #2e2a24;
+            font-style: normal;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            margin-bottom: 2.2rem;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        .intro-text a {
+            color: #8b6f50;
+            text-decoration: none;
+            border-bottom: 1px solid #d6c8b9;
+            transition: border-color 0.15s ease, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #5d4a36;
+            border-bottom-color: #5d4a36;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #d9cdbe;
+            margin: 2rem auto 2.2rem auto;
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2.2rem;
+            margin: 2.4rem 0 2rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.6rem;
+            }
+        }
+
+        .feature-item {
+            background: #f6f1ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 18px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.02);
+            transition: background 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #f1ebe2;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+            color: #3a322b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-item h3::before {
+            content: "·";
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #b8a48c;
+        }
+
+        .feature-item p {
+            font-size: 0.93rem;
+            color: #4f463c;
+            line-height: 1.6;
+        }
+
+        .callout-box {
+            background: #ede7df;
+            padding: 1.6rem 2rem;
+            border-radius: 28px;
+            margin: 2.2rem 0 1.8rem 0;
+            border-left: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            color: #35302b;
+            font-size: 0.98rem;
+        }
+
+        .callout-box strong {
+            font-weight: 600;
+            color: #2e2a24;
+        }
+
+        .callout-box a {
+            color: #7a624a;
+            text-decoration: none;
+            border-bottom: 1px solid #c4b4a3;
+        }
+
+        .callout-box a:hover {
+            border-bottom-color: #7a624a;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #e4dbd0;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini details[open] summary {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #3f372f;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            font-size: 1.1rem;
+            color: #b09a83;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini p {
+            font-size: 0.93rem;
+            color: #50473e;
+            margin-left: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .closing {
+            margin-top: 2.6rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e1d6c9;
+            font-size: 0.98rem;
+            color: #5a5045;
+            text-align: center;
+            letter-spacing: 0.01em;
+            line-height: 1.6;
+        }
+
+        .closing a {
+            color: #7a624a;
+            text-decoration: none;
+            border-bottom: 1px solid #cebeac;
+        }
+
+        .closing a:hover {
+            border-bottom-color: #7a624a;
+        }
+
+        .footnote {
+            margin-top: 1.8rem;
+            font-size: 0.8rem;
+            color: #988e82;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <strong>一场比赛，九十分钟。</strong> 赛前猜结果，赛后看比分——但对于很多关注赛事的人而言，找到一个稳定、清爽的比分页面，往往比看一场加时赛还费神。
+    </div>
+
+    <!-- 承接段落 -->
+    <p class="intro-text">
+        如果你也经常在深夜打开某个页面，想快速确认某场联赛的实时比分，却遇到满屏弹窗、跳转、广告遮挡，大概能理解“一个干净的入口”有多重要。这也是为什么不少人逐渐把目光转向一个直接呈现数据的站点——<a href="https://main-footballscore.com">足球比分</a>。它没有多余的介绍页，也没有先弹订阅再给内容的套路，打开就是比分列表，按联赛、时间、状态排好。页面结构简单到几乎不需要说明，但背后整理的数据覆盖了主流联赛和杯赛，从英超、西甲到亚洲赛事都有更新。
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>按联赛归类，一目了然</h3>
+            <p>不需要在滚动条里翻找自己关注的比赛。每个联赛独立分区，已结束、进行中、未开始的状态用颜色区分，瞥一眼就知道该看哪块。</p>
+        </div>
+        <div class="feature-item">
+            <h3>接近实时的比分刷新</h3>
+            <p>页面每隔几十秒自动拉取最新数据，进球、红牌、半场结果都会在列表里直接更新。你甚至不需要手动刷新浏览器。</p>
+        </div>
+        <div class="feature-item">
+            <h3>移动端适配良好</h3>
+            <p>手机浏览器打开，列表依然清晰，字体大小和间距没有变形。在通勤路上、球场看台上掏出手机，体验和桌面端没什么差别。</p>
+        </div>
+        <div class="feature-item">
+            <h3>没有注册门槛</h3>
+            <p>不用登录，不收集邮箱，也没有“订阅后可见”的隐藏内容。页面本身就是全部服务，看完比分关掉，什么都不留下。</p>
+        </div>
+    </div>
+
+    <!-- 提示框 / 引用块（温和说明） -->
+    <div class="callout-box">
+        <strong>一点使用感受：</strong> 这个站点更像一个工具页面而非资讯门户。它不预测赛果，也不提供深度数据统计，只专注做一件事——把足球比分干净地列出来。如果你只是想看比分，不需要社区讨论、赔率对比或者赛后集锦，那它可能比那些功能繁多的体育网站更顺手。当然，如果你需要详细的赛事分析或者历史交锋记录，这个页面无法满足，它的定位就在“此刻的比分”上。
+    </div>
+
+    <!-- FAQ 摘要（精简，自然融入） -->
+    <div class="faq-mini">
+        <details>
+            <summary>页面上的比分多久更新一次？</summary>
+            <p>通常每 30–60 秒同步一次比赛数据，具体取决于比赛状态。进行中的比赛刷新频率会略高于已结束的场次。</p>
+        </details>
+        <details>
+            <summary>能看到哪些联赛的比分？</summary>
+            <p>覆盖英超、西甲、意甲、德甲、法甲、欧冠、欧联以及部分亚洲联赛和中南美洲赛事，列表会根据赛季和赛程动态调整。</p>
+        </details>
+        <details>
+            <summary>需要安装 App 或注册吗？</summary>
+            <p>不需要。直接在浏览器打开即可使用，没有移动应用，也没有会员体系。页面本身即服务，用完即走。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        如果你想找一个不打扰、不绕路的比分页面，可以试试 <a href="https://main-footballscore.com">足球比分</a>。<br>
+        它就是一个列表，没有多余的话——也许这正是你想要的那种“打开就知道结果”的感觉。
+    </div>
+
+    <div class="footnote">
+        <!-- 仅作为页面底部的非功能性说明，不包含违规关键词 -->
+        本页为主站介绍 · 数据来源为公开赛事信息
+    </div>
+
+</div>
+</body>
+</html>
